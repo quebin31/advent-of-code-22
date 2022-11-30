@@ -1,0 +1,5 @@
+[versions]
+kotlin = "1.7.21"
+
+[libraries]
+clikt = "com.github.ajalt.clikt:clikt:3.5.0"
