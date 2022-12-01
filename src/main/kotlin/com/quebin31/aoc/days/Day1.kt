@@ -1,6 +1,7 @@
 package com.quebin31.aoc.days
 
 import com.quebin31.aoc.core.Day
+import com.quebin31.aoc.utils.addSorted
 import com.quebin31.aoc.utils.chunkedBy
 import com.quebin31.aoc.utils.sortedDescending
 import java.util.*
@@ -29,7 +30,7 @@ class Day1 : Day {
      * calories is kept temporarily in a single variable.
      */
     private fun maxCaloriesImperative(input: Sequence<String>, n: Int): List<Int> {
-        val maxCarriedCalories = sortedSetOf<Int>(reverseOrder())
+        val maxCarriedCalories = mutableListOf<Int>()
         var currentSum = 0
 
         for (line in input) {
@@ -45,12 +46,13 @@ class Day1 : Day {
     }
 
     /**
-     * Updates the [TreeSet] adding a new value, and removing the lowest if the size would exceed [n].
+     * Updates the [MutableList] adding a new value, and removing the lowest if the size would
+     * exceed [n].
      */
-    private fun TreeSet<Int>.update(value: Int, n: Int) {
-        add(value)
+    private fun MutableList<Int>.update(value: Int, n: Int) {
+        addSorted(reverseOrder(), value)
         if (size > n) {
-            pollLast()
+            removeLast()
         }
     }
 }

@@ -26,13 +26,15 @@ fun <T> Sequence<T>.chunkedBy(separator: (T) -> Boolean): Sequence<List<T>> = se
  * _This operation is intermediate and stateful_
  */
 fun <T: Comparable<T>> Sequence<T>.sortedDescending(n: Int): Sequence<T> {
-    val sortedSet = sortedSetOf<T>(reverseOrder())
+    val sortedList = mutableListOf<T>()
+    val comparator = reverseOrder<T>()
+
     for (item in this) {
-        sortedSet.add(item)
-        if (sortedSet.size > n) {
-            sortedSet.pollLast()
+        sortedList.addSorted(comparator, item)
+        if (sortedList.size > n) {
+            sortedList.removeLast()
         }
     }
 
-    return sortedSet.asSequence()
+    return sortedList.asSequence()
 }
