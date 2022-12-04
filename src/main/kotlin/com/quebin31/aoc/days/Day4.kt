@@ -11,7 +11,7 @@ class Day4 : Day {
     }
 
     override fun part2(input: Sequence<String>): Any = parseInput(input).count { (a, b) ->
-        a.overlaps(b) || b.overlaps(a)
+        a.overlaps(b)
     }
 
     private fun parseInput(input: Sequence<String>) = input
@@ -26,5 +26,5 @@ class Day4 : Day {
         other.first >= first && other.last <= last
 
     private fun IntRange.overlaps(other: IntRange): Boolean =
-        first in other || last in other
+        other.last >= first && other.first <= last
 }
