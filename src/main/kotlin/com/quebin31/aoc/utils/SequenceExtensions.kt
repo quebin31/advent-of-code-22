@@ -17,6 +17,10 @@ fun <T> Sequence<T>.chunkedBy(separator: (T) -> Boolean): Sequence<List<T>> = se
             currentList.add(item)
         }
     }
+
+    if (currentList.isNotEmpty()) {
+        yield(currentList)
+    }
 }
 
 /**
