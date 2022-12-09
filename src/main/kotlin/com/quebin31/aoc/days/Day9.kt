@@ -1,6 +1,7 @@
 package com.quebin31.aoc.days
 
 import com.quebin31.aoc.core.Day
+import kotlin.math.sign
 
 @Suppress("unused")
 class Day9 : Day {
@@ -25,12 +26,13 @@ class Day9 : Day {
                 tails.scanIndexed(initial = head) { index, prev: Point?, tail ->
                     if (prev == null) return@scanIndexed null
 
-                    val x = tail.x + (prev.x - tail.x).coerceIn(-1..1)
-                    val y = tail.y + (prev.y - tail.y).coerceIn(-1..1)
-                    val newTail = Point(x, y)
-                    if (newTail != prev) {
-                        tails[index] = newTail
-                        newTail.also { if (index == tails.lastIndex) visited.add(it) }
+                    val x = tail.x + (prev.x - tail.x).sign
+                    val y = tail.y + (prev.y - tail.y).sign
+                    if (x != prev.x || y != prev.y) {
+                        Point(x, y).also { new ->
+                            tails[index] = new
+                            if (index == tails.lastIndex) visited.add(new)
+                        }
                     } else {
                         null
                     }
