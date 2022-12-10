@@ -12,7 +12,7 @@ class Day10 : Day {
     override fun part2(input: Sequence<String>): Any =
         input.getCRTDisplayOutput()
 
-    private fun Sequence<String>.simulateMachine(onCycle: (register: Int, cycle: Int) -> Unit) {
+    private inline fun Sequence<String>.simulateMachine(onCycle: (register: Int, cycle: Int) -> Unit) {
         var register = 1
         var cycle = 1
 
@@ -52,11 +52,11 @@ class Day10 : Day {
     private fun Sequence<String>.getCRTDisplayOutput(): String {
         val builder = StringBuilder().appendLine()
 
-        fun getPixel(spriteMidX: Int, index: Int): Char =
+        fun getPixel(spriteMidX: Int, index: Int): String =
             if (spriteMidX - 1 <= index && index <= spriteMidX + 1) {
-                '#'
+                "⚪️"
             } else {
-                '.'
+                "⚫️"
             }
 
         simulateMachine { register, cycle ->
