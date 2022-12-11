@@ -7,7 +7,7 @@ import com.quebin31.aoc.utils.sortedDescending
 import java.util.*
 
 @Suppress("unused")
-class Day1 : Day {
+class Day01 : Day {
 
     override fun part1(input: Sequence<String>): Any =
         maxCaloriesImperative(input, n = 1).single()

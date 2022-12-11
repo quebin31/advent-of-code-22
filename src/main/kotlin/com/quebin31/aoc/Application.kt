@@ -31,8 +31,9 @@ object Application : CliktCommand() {
             return
         }
 
+        val padNumber = "$dayNumber".padStart(length = 2, padChar = '0')
         val inputName = if (test) "test.txt" else "real.txt"
-        val inputPath = "./input/$dayNumber/$inputName"
+        val inputPath = "./input/$padNumber/$inputName"
 
         File(inputPath).run {
             day.safeRun(part = 1) { useLines(block = ::part1) }

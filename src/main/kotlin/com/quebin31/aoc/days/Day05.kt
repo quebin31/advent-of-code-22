@@ -4,7 +4,7 @@ import com.quebin31.aoc.core.Day
 import com.quebin31.aoc.utils.chunkedBy
 
 @Suppress("unused")
-class Day5 : Day {
+class Day05 : Day {
 
     data class Instruction(val amount: Int, val orig: Int, val dest: Int)
 

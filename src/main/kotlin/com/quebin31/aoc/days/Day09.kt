@@ -4,7 +4,7 @@ import com.quebin31.aoc.core.Day
 import kotlin.math.sign
 
 @Suppress("unused")
-class Day9 : Day {
+class Day09 : Day {
 
     data class Point(val x: Int, val y: Int)
 

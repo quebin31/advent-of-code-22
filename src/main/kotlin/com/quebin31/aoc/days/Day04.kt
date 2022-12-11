@@ -4,7 +4,7 @@ import com.quebin31.aoc.core.Day
 
 
 @Suppress("unused")
-class Day4 : Day {
+class Day04 : Day {
 
     override fun part1(input: Sequence<String>): Any = parseInput(input).count { (a, b) ->
         a.contains(b) || b.contains(a)

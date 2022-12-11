@@ -9,7 +9,8 @@ interface Day {
     companion object {
 
         fun fromNumber(number: Int): Day? = try {
-            val loadedClass = Class.forName("com.quebin31.aoc.days.Day$number")
+            val padNumber = "$number".padStart(length = 2, padChar = '0')
+            val loadedClass = Class.forName("com.quebin31.aoc.days.Day$padNumber")
             loadedClass.getDeclaredConstructor().newInstance() as Day
         } catch (error: Throwable) {
             null

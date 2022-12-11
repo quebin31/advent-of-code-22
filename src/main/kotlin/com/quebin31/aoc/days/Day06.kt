@@ -3,7 +3,7 @@ package com.quebin31.aoc.days
 import com.quebin31.aoc.core.Day
 
 @Suppress("unused")
-class Day6 : Day {
+class Day06 : Day {
 
     override fun part1(input: Sequence<String>): Any = input
         .first()

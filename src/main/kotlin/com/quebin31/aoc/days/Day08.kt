@@ -5,7 +5,7 @@ import com.quebin31.aoc.core.Day
 typealias ForestMap = List<List<Int>>
 
 @Suppress("unused")
-class Day8 : Day {
+class Day08 : Day {
 
     override fun part1(input: Sequence<String>): Any = parseForestMap(input)
         .countVisibleTrees()

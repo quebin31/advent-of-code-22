@@ -3,7 +3,7 @@ package com.quebin31.aoc.days
 import com.quebin31.aoc.core.Day
 
 @Suppress("unused")
-class Day2 : Day {
+class Day02 : Day {
 
     enum class Result {
         Lose, Draw, Win,
